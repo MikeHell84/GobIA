@@ -1,0 +1,34 @@
+<html>
+        <head>
+            <meta charset='utf-8'>
+            <title>Reporte GobIA Auditor</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 24px; }
+                table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
+                th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+                th { background: #f3f3f3; }
+                .critical { background: #ffe6e6; }
+            </style>
+        </head>
+        <body>
+            <h1>Reporte GobIA Auditor</h1>
+            <p>Fecha de generación: 2026-05-08T01:46:26.771876+00:00</p>
+            <p>Total contratos: 2</p>
+            <p>Umbral crítico: 70</p>
+            <p>Filtros aplicados: Modo ejemplo local</p>
+            <h2>Contratos críticos</h2>
+            <ul>
+                
+            </ul>
+            <h2>Ranking de alertas</h2>
+            <table>
+                <thead><tr><th>Alerta</th><th>Frecuencia</th></tr></thead>
+                <tbody><tr><td>Fecha ajustada o cercana a cambios institucionales</td><td>2</td></tr><tr><td>Contratista reciente o con poca trazabilidad</td><td>1</td></tr><tr><td>Entidad estatal con trazabilidad débil</td><td>1</td></tr></tbody>
+            </table>
+            <h2>Contratos analizados</h2>
+            <table>
+                <thead><tr><th>ID</th><th>Entidad</th><th>Contratista</th><th>Score</th><th>Alertas</th><th>Justificación</th></tr></thead>
+                <tbody><tr><td>TEST-0001</td><td>Secretaría de Educación Municipal</td><td>Proveedor Ejemplo SA</td><td>15</td><td>Fecha ajustada o cercana a cambios institucionales</td><td>La firma del contrato se da en un momento sensible del calendario político o legal.</td></tr><tr><td>TEST-0002</td><td>Entidad Estatal de Compras</td><td>Muebles y Servicios LTDA</td><td>45</td><td>Contratista reciente o con poca trazabilidad, Fecha ajustada o cercana a cambios institucionales, Entidad estatal con trazabilidad débil</td><td>El contratista parece haber sido constituido recientemente o no tiene fecha de creación clara. La firma del contrato se da en un momento sensible del calendario político o legal. La entidad no contiene información clara o es demasiado genérica.</td></tr></tbody>
+            </table>
+        </body>
+        </html>

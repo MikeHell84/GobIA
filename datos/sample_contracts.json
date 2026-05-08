@@ -1,0 +1,28 @@
+[
+  {
+    "contrato_id": "TEST-0001",
+    "objeto": "Consultoría para la elaboración de estudios técnicos de infraestructura educativa.",
+    "valor_total": 150000000.0,
+    "fecha_inicio": "2026-04-10",
+    "fecha_fin": "2026-07-10",
+    "contratista_nombre": "Proveedor Ejemplo SA",
+    "contratista_fecha_creacion": "2024-09-15",
+    "entidad_nombre": "Secretaría de Educación Municipal",
+    "modificaciones": [],
+    "adiciones": [],
+    "anexos_urls": ["https://www.datos.gov.co/ejemplo/anexo.pdf"]
+  },
+  {
+    "contrato_id": "TEST-0002",
+    "objeto": "Suministro de mobiliario para oficinas administrativas.",
+    "valor_total": 32000000.0,
+    "fecha_inicio": "2026-04-20",
+    "fecha_fin": "2026-06-20",
+    "contratista_nombre": "Muebles y Servicios LTDA",
+    "contratista_fecha_creacion": "2025-11-10",
+    "entidad_nombre": "Entidad Estatal de Compras",
+    "modificaciones": [{"descripcion": "Adición de plazo 15 días."}],
+    "adiciones": [{"descripcion": "Adición valor 3.200.000."}],
+    "anexos_urls": []
+  }
+]

@@ -74,3 +74,4 @@ El sistema:
 - El endpoint por defecto es `https://www.datos.gov.co/resource/rtxx-3nky.json`.
 - El reporte HTML se guarda en `datos/`.
 - Ajusta `SECOP_DAYS_WINDOW` y `RISK_THRESHOLD` desde `.env` si lo deseas.
+# GobIA

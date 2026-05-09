@@ -1,5 +1,10 @@
 __pycache__/
 *.pyc
 .env
+.venv/
 venv/
 .streamlit/secrets.toml
+
+datos/*
+!datos/.gitignore
+!datos/README.md

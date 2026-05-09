@@ -1,0 +1,6 @@
+# Ignorar todos los datos locales de este directorio
+*
+
+# Mantener este archivo y el README para que el directorio sea visible en el repositorio
+!.gitignore
+!README.md

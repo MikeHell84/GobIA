@@ -89,69 +89,6 @@ def analizar_con_llm(objeto: str, valor: float, contrato: Dict[str, Any], llm_cl
     # Import tardío para no acoplar hard la app si el archivo no existe en algún build parcial
     from gobia_auditor.local_analyzer import analizar_contrato_local
 
-    prompt = f"""
-Eres un auditor de contratos públicos en Colombia. Analiza el siguiente contrato y responde SOLO con un JSON válido (sin texto adicional, sin markdown). El JSON debe tener estos campos:
-{{
-  "score": <entero entre 0 y 100>,
-  "alertas": ["alerta1", "alerta2", ...],
-  "justificacion": "texto breve"
-}}
-
-Contrato:
-- Objeto: {objeto}
-- Valor: ${valor:,.0f} COP
-- Entidad: {contrato.get('entidad_nombre', 'N/A')}
-- Contratista: {contrato.get('contratista_nombre', 'N/A')}
-- Departamento: {contrato.get('departamento', 'N/A')}
-- Ciudad: {contrato.get('ciudad', 'N/A')}
-"""
-    try:
-        if provider == "Deepseek":
-            respuesta_texto = llm_client.generate_content(prompt)
-        elif provider == "Google Gemini":
-            response = llm_client.generate_content(prompt)
-            respuesta_texto = response.text
-        elif provider == "OpenAI":
-            if hasattr(llm_client, "chat"):
-                response = llm_client.chat.completions.create(
-                    model=model or "gpt-3.5-turbo",
-                    messages=[{"role": "user", "content": prompt}],
-                    temperature=0.1,
-                )
-            else:
-                response = llm_client.ChatCompletion.create(
-                    model=model or "gpt-3.5-turbo",
-                    messages=[{"role": "user", "content": prompt}],
-                    temperature=0.1,
-                )
-            respuesta_texto = response.choices[0].message.content
-        else:
-            raise ValueError(f"Proveedor no soportado: {provider}")
-
-        respuesta_texto = respuesta_texto.strip()
-        if respuesta_texto.startswith("```json"):
-            respuesta_texto = respuesta_texto[7:]
-        if respuesta_texto.startswith("```"):
-            respuesta_texto = respuesta_texto[3:]
-        if respuesta_texto.endswith("```"):
-            respuesta_texto = respuesta_texto[:-3]
-        respuesta_texto = respuesta_texto.strip()
-
-        resultado = json.loads(respuesta_texto)
-        # Metadatos para UI / debugging
-        resultado["modo"] = "llm"
-        resultado["fallback"] = None
-        resultado["origen"] = f"LLM ({provider})"
-        resultado["exito_llm"] = True
-        return resultado
-    except Exception as e:
-        # Fallback local transparente
-        local_resultado = analizar_contrato_local(contrato)
-        local_resultado["fallback"] = str(e)
-        local_resultado["origen"] = "Local (heurístico)"
-        local_resultado["exito_llm"] = False
-        local_resultado["error_llm"] = str(e)
-        return local_resultado
 
 
 

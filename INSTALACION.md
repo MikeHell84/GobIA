@@ -104,7 +104,7 @@ SECOP_MAX_RECORDS=200
 SECOP_USE_SAMPLE_DATA=false  # true para modo offline
 
 # Análisis con IA
-LLM_API_KEY=sk-tu_clave_openai_aqui  # Opcional
+LLM_API_KEY=tu_clave_openai_aqui  # Opcional
 LLM_MODEL=gpt-3.5-turbo
 
 # Reportes por email (opcional)
